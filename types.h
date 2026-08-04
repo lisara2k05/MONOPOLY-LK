@@ -6,7 +6,7 @@
 #define BOARD_SLOTS 40
 #define MAX_PLAYERS 4
 #define START_CASH 30000
-#define GO_SALARY 2000
+#define GO_SALARY 2000 // can be remove
 #define MAX_ROUNDS 500
 #define JAIL_FUND 300
 #define LOAN_DURATION 20
@@ -84,8 +84,11 @@ typedef struct {
     char property[50];
     int colourgroup;  // brown blue...
     int purchaseprice; // miladee ganna mila
+    int baseprice;
+    int currentprice;
     int mortagevalue; // ukas watinakama
     int baserent; // muulika kuliya
+    int currentrent; 
     int housecost; // house ekaka mila
     int hotelcost; // hotel ekaka mila
     int currentowner; // owner ge id eka
@@ -93,17 +96,21 @@ typedef struct {
     int ownedhouses; // gewal gana
     int ownedhotels; // hotels gana
     int age_rounds; // wayasa --> wata gaanin
-    int insuaranacetype; // 0 --> npo , 1 --> basic ,2 --> comprehensive 
+    float depreciation; // kshaya weema dashama walin
+
+    Insuaranacetype insuarance; 
     int insuaranceroundsleft; // ithiri wata ganana
     int buildingcondition ; // godanagili thathwaya
-    float depreciation; // kshaya weema dashama walin
+    int maintainrounds;
+    
 
 } Property ; 
 
 //player kenek sadaha
 
 typedef struct {
-    int playerid;
+    int name ; 
+    int id;
     char player[50];
     int cash ; // athe thina gana
     int position ; // board eke place eka [0-39]
